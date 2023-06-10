@@ -10,12 +10,16 @@ def create_countdown_image(image_path, months, days, minutes, seconds):
     draw = ImageDraw.Draw(image)
 
     font = ImageFont.truetype("arial.ttf", 36)
+    desc_font = ImageFont.truetype("arial.ttf", 15)
 
-    countdown_text = f"{months} months, {days} days, {minutes} minutes, {seconds} seconds"
-    text_position = (580, 300)
+    countdown_text = f"0{months} : {days} : {minutes} : {seconds} "
+    
+    text_position = (816, 300)
     text_color = (255, 255, 255)
 
     draw.text(text_position, countdown_text, font=font, fill=text_color)
+    
+    
 
     image.save("Wallpaper_Changer\\images\\countdown_image.png")
     return "Wallpaper_Changer\\images\\countdown_image.png"
@@ -45,7 +49,7 @@ def calculate_time_remaining(target_date):
 def main():
     while True:
 
-        background_path = r"C:\Projects\Wallpaper_Changer\images\Base.png"
+        background_path = r"c:\\Users\Dell\Downloads\img.png"
         target_date = datetime.datetime(2023, 8, 8)
         remaining_months, remaining_days, remaining_minutes, remaining_seconds = calculate_time_remaining(
             target_date)
